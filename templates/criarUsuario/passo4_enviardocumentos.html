@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>CEU - Centro Unificado Educacional Parque Bristol</title>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="stylesheet" href="{% static '/styles/ceu_estilo.css' %}">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=poppins">
+		<script src="https://kit.fontawesome.com/3e6ed66707.js" crossorigin="anonymous"></script>	
+	</head>
+	<body>
+
+		<div id="wrapper-div">
+
+			<div id="topo-div">
+				<!-- Logo -->
+				<div id="topo-logo-div">
+					<img src="{% static '/assets/img/logo_ceu_retangular.png' %}">
+				</div>
+				<div id="topo-config-div">
+					<span class="baixo-esq"><img src="{% static '/assets/img/icone_home.png' %}">&nbsp;/ Criar usuário ( Enviar documentos ) > Passo 4 de 4</span>
+					<span class="alto-dir"><a href="#"><img src="{% static '/assets/img/icone_config.png' %}"></a><a href="#"><img src="{% static '/assets/img/icone_sair.png' %}"></a></span>
+				</div>
+			</div>		
+
+			<div id="main-div">
+				<!-- Menu -->
+				<div id="main-menu-div">					
+					<nav>
+						<a href="{% url 'criar_usuario' %}" class="menu"><img src="{% static '/assets/img/btn_criar_usuario.png' %}"></a>
+						<a href="{% url 'buscar_usuario' %}" class="menu"><img src="{% static '/assets/img/btn_buscar_usuario.png' %}"></a>
+					</nav>
+				</div>
+				
+				<!-- Conteúdo da página -->
+				<div id="main-area-div">
+					<span class="area">
+						<div class="container">
+							<table class="cor_linhas_alternadas">
+								<tr>
+									<th>DOCUMENTOS</th>
+									<th>AÇÕES</th>
+								</tr>
+								<tr>
+									<td>Foto 3x4 colorida (atual)</td>
+									<td>
+										<button type="button" class="btn">
+											<span class="btn_icone"><i class="fa-solid fa-arrow-up-from-bracket" style="color: #ffffff;"></i></span>
+											<span class="btn_texto">enviar documento</span>
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td>RG (usuário)</td>
+									<td>
+										<button type="button" class="btn">
+											<span class="btn_icone"><i class="fa-solid fa-arrow-up-from-bracket" style="color: #ffffff;"></i></span>
+											<span class="btn_texto">enviar documento</span>
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td>Certidão de nascimento (usuário)</td>
+									<td>
+										<button type="button" class="btn">
+											<span class="btn_icone"><i class="fa-solid fa-arrow-up-from-bracket" style="color: #ffffff;"></i></span>
+											<span class="btn_texto">enviar documento</span>
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td>RG (responsável)</td>
+									<td>
+										<button type="button" class="btn">
+											<span class="btn_icone"><i class="fa-solid fa-arrow-up-from-bracket" style="color: #ffffff;"></i></span>
+											<span class="btn_texto">enviar documento</span>
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td>Comprovante de residência</td>
+									<td>
+										<button type="button" class="btn">
+											<span class="btn_icone"><i class="fa-solid fa-arrow-up-from-bracket" style="color: #ffffff;"></i></span>
+											<span class="btn_texto">enviar documento</span>
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td>Autorização assinada</td>
+									<td>
+										<button type="button" class="btn">
+											<span class="btn_icone"><i class="fa-solid fa-arrow-up-from-bracket" style="color: #ffffff;"></i></span>
+											<span class="btn_texto">enviar documento</span>
+										</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="container3">
+							<div class="box3">
+								<button class="botao_pequeno" type="button">Primeiro passo</button>
+								<button class="botao_pequeno" type="button">Passo anterior</button>
+								<button class="botao_pequeno" type="button">Gravar</button>
+							</div>										
+						</div>
+					</span>					
+				</div>
+			</div>				
+		</div>
+			
+	</body>
+</html>

@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>CEU - Centro Unificado Educacional Parque Bristol</title>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="stylesheet" href="{% static '/styles/ceu_estilo.css' %}">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=poppins">
+	</head>
+	<body>
+		<div id="wrapper-div">
+
+			<div id="topo-div">
+				<!-- Logo -->
+				<div id="topo-logo-div">
+					<img src="{% static '/assets/img/logo_ceu_retangular.png' %}">
+				</div>
+				<div id="topo-config-div">
+					<span class="baixo-esq"><img src="{% static '/assets/img/icone_home.png' %}">&nbsp;/ Criar usuário ( Dados pessoais ) > Passo 1 de 4</span>					
+					<span class="alto-dir"><a href="#"><img src="{% static '/assets/img/icone_config.png' %}"></a><a href="#"><img src="{% static '/assets/img/icone_sair.png' %}"></a></span>
+				</div>
+			</div>		
+
+			<div id="main-div">
+				<!-- Menu -->
+				<div id="main-menu-div">					
+					<nav>
+						<a href="{% url 'criar_usuario' %}" class="menu"><img src="{% static '/assets/img/btn_criar_usuario.png' %}"></a>
+						<a href="{% url 'buscar_usuario' %}" class="menu"><img src="{% static '/assets/img/btn_buscar_usuario.png' %}"></a>
+					</nav>
+				</div>
+				
+				<!-- Conteúdo da página -->
+				<div id="main-area-div">
+					<span class="area">
+						<form>
+							<div class="container">
+
+								<div class="box">
+									<span>Campos marcados com * são obrigatórios.</span>
+								</div>
+
+								<div class="box">
+									<span>&nbsp;</span>
+								</div>
+
+								<div class="box">
+									<label for="numero_cadastro">Número de cadastro*</label>
+									<input type="text" id="numero_cadastro" name="numero_cadastro" required>
+								</div>
+								
+								<div class="box">
+									<label for="eol">EOL*</label>
+									<input type="text" id="eol" name="eol" required>
+								</div>
+								
+								<div class="box">
+									<label for="nome_completo">Nome completo*</label>
+									<input type="text" id="nome_completo" name="nome_completo" required>
+								</div>
+						
+								<div class="box">
+									<label for="nome_social">Nome social (se tiver)</label>
+									<input type="text" id="nome_social" name="nome_social">
+								</div>	
+							</div>		
+								
+							<div class="box">
+								<label for="raca_cor">Raça/cor*</label>
+								<select id="raca_cor" name="raca_cor" required>
+									<option disabled="disabled" selected="selected">Selecione raça/cor</option>
+									<option value="amarela">Amarela</option>
+									<option value="branca">Branca</option>
+									<option value="indígena">Indígena</option>
+									<option value="parda">Parda</option>
+									<option value="preta">Preta</option>						  							  					 
+								</select>		
+							</div>
+						
+							<div class="container">	
+								<div class="box">
+									<label for="cidade">Natural de (cidade)*</label>
+									<input type="text" id="cidade" name="cidade" required>		
+								</div>	
+						
+								<div class="box">
+									<label for="uf">UF*</label>
+									<select id="uf" name="uf" required>
+										<option disabled="disabled" selected="selected">Selecione a Unidade Federativa</option>
+										<option value="AC">Acre (AC)</option>
+										<option value="AL">Alagoas (AL)</option>
+										<option value="AP">Amapá (AP)</option>
+										<option value="AM">Amazonas (AM)</option>
+										<option value="BA">Bahia (BA)</option>
+										<option value="CE">Ceará (CE)</option>
+										<option value="DF">Distrito Federal (DF)</option>
+										<option value="ES">Espírito Santo (ES)</option>
+										<option value="GO">Goiás (GO)</option>
+										<option value="MA">Maranhão (MA)</option>
+										<option value="MT">Mato Grosso (MT)</option>
+										<option value="MS">Mato Grosso do Sul (MS)</option>
+										<option value="MG">Minas Gerais (MG)</option>
+										<option value="PA">Pará (PA)</option>
+										<option value="PB">Paraíba (PB)</option>
+										<option value="PR">Paraná (PR)</option>
+										<option value="PE">Pernambuco (PE)</option>
+										<option value="PI">Piauí (PI)</option>
+										<option value="RJ">Rio de Janeiro (RJ)</option>
+										<option value="RN">Rio Grande do Norte (RN)</option>
+										<option value="RS">Rio Grande do Sul (RS)</option>
+										<option value="RO">Rondônia (RO)</option>
+										<option value="RR">Roraima (RR)</option>
+										<option value="SC">Santa Catarina (SC)</option>
+										<option value="SP">São Paulo (SP)</option>
+										<option value="SE">Sergipe (SE)</option>
+										<option value="TO">Tocantins (TO)</option>
+									</select>		
+								</div>
+						
+								<div class="box">
+									<label for="data_nascimento">Data de nascimento*</label>
+									<input type="date" id="data_nascimento" name="data_nascimento" required>		
+								</div>	
+						
+								<div class="box">
+									<label for="idade">Idade*</label>
+									<input type="text" id="idade" name="idade" required>		
+								</div>
+						
+								<div class="box">
+									<label for="certidao_nascimento">Certidão de nascimento</label>
+									<input type="text" id="certidao_nascimento" name="certidao_nascimento" required>		
+								</div>	
+								
+								<div class="container2">
+									<p>Certidão (modelo antigo)</p>
+									<div class="box2">
+										<label for="folha">Folha</label>
+										<input type="text" id="folha" name="folha" size="10">
+										<label for="livro">Livro</label>
+										<input type="text" id="livro" name="livro" size="10">
+										<label for="numero_certidao">N.o</label>
+										<input type="text" id="numero_certidao" name="numero_certidao" size="10">		
+									</div>
+								</div>
+						
+								<div class="box">
+									<label for="rg">RG</label>
+									<input type="text" id="rg" name="rg" required>		
+								</div>
+						
+								<div class="box">
+									<label for="data_expedicao">Data de expedição</label>
+									<input type="date" id="data_expedicao" name="data_expedicao" required>		
+								</div>	
+							</div>
+							
+							<div class="box">
+								<label for="necessidade_especial">É portador de alguma necessidade especial?*</label>
+								<div class="radio-container">
+									<label><input type="radio" name="necessidade_especial" value="enabled" checked>Sim</label>
+									<label><input type="radio" name="necessidade_especial" value="disabled">Não</label>
+								</div>
+								<textarea id="necessidade_especial" name="necessidade_especial" rows="5" maxlength="400" style="resize: none" placeholder="Descreva-a neste campo se a resposta for 'Sim'."></textarea>		
+							</div>	
+							
+							<div class="box">
+								<label for="nome_completo_responsavel">Nome completo do responsável<br>(apenas para usuários menores de 18 anos)</label>
+								<input type="text" id="nome_completo_responsavel" name="nome_completo_responsavel">
+							</div>
+						  
+							<div class="container3">
+								<div class="box3">
+									<button class="botao_pequeno" type="button">Primeiro passo</button>
+									<button class="botao_pequeno" type="button">Passo anterior</button>
+									<button class="botao_pequeno" type="button">Gravar</button>
+								</div>
+							</div>
+						</form>
+					</span>					
+				</div>
+			</div>				
+		</div>
+		<script>
+			const radioButtons = document.querySelectorAll('.area input[type="radio"]');		
+			radioButtons.forEach(radioButton => {
+				radioButton.addEventListener('change', () => {
+					const textareaId = radioButton.getAttribute('name');
+					const textarea = document.getElementById(textareaId);
+					textarea.disabled = (radioButton.value === 'disabled');
+			  	});
+			});
+		</script>		
+	</body>
+</html>

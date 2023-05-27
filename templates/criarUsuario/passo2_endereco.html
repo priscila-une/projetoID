@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>CEU - Centro Unificado Educacional Parque Bristol</title>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="stylesheet" href="{% static '/styles/ceu_estilo.css' %}">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=poppins">	
+	</head>
+	<body>
+		<div id="wrapper-div">
+
+			<div id="topo-div">
+				<!-- Logo -->
+				<div id="topo-logo-div">
+					<img src="{% static '/assets/img/logo_ceu_retangular.png' %}">
+				</div>
+				<div id="topo-config-div">
+					<span class="baixo-esq"><img src="{% static '/assets/img/icone_home.png' %}">&nbsp;/ Criar usuário ( Endereço ) > Passo 2 de 4</span>
+					<span class="alto-dir"><a href="#"><img src="{% static '/assets/img/icone_config.png' %}"></a><a href="#"><img src="{% static '/assets/img/icone_sair.png' %}"></a></span>
+				</div>
+			</div>		
+
+			<div id="main-div">
+				<!-- Menu -->
+				<div id="main-menu-div">					
+					<nav>
+						<a href="{% url 'criar_usuario' %}" class="menu"><img src="{% static '/assets/img/btn_criar_usuario.png' %}"></a>
+						<a href="{% url 'buscar_usuario' %}" class="menu"><img src="{% static '/assets/img/btn_buscar_usuario.png' %}"></a>
+					</nav>
+				</div>
+				
+				<!-- Conteúdo da página -->
+				<div id="main-area-div">
+					<span class="area">
+						<form>
+							<div class="container">
+								<div class="box">
+									<span>Campos marcados com * são obrigatórios.</span>
+								</div>
+
+								<div class="box">
+									<span>&nbsp;</span>
+								</div>		
+														
+								<div class="box">
+									<label for="endereco">Endereço*</label>
+									<input type="text" id="endereco" name="endereco" required>
+								</div>
+								
+								<div class="box">
+									<label for="endereco_numero">Número*</label>
+									<input type="text" id="endereco_numero" name="endereco_numero" required>
+								</div>
+								
+								<div class="box">
+									<label for="complemento">Complemento</label>
+									<input type="text" id="complemento" name="complemento">
+								</div>
+								
+								<div class="box">
+									<label for="cep">CEP*</label>
+									<input type="text" id="cep" name="cep" placeholder="XXXXX-XXX" pattern="[0-9]{5}-[0-9]{3}" title="Formato do CEP: XXXXX-XXX" required>
+								</div>
+								
+								<div class="box">
+									<label for="telefone_residencial">Telefone residencial</label>
+									<input type="text" id="telefone_residencial" name="telefone_residencial" placeholder="(XX) XXXX-XXXX" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4}" title="Formato do Telefone residencial: (XX) XXXX-XXXX">
+								</div>
+								
+								<div class="box">
+									<label for="telefone_celular">Telefone celular</label>
+									<input type="text" id="telefone_celular" name="telefone_celular" placeholder="(XX) XXXXX-XXXX" pattern="\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}" title="Formato do Telefone celular: (XX) XXXXX-XXXX">
+								</div>		
+						
+								<div class="box">
+									<label for="telefone_recado">Telefone (recado)</label>
+									<input type="text" id="telefone_recado" name="telefone_recado" placeholder="(XX) XXXX-XXXX ou (XX) XXXXX-XXXX " pattern="\([0-9]{2}\)[\s][0-9]{4,5}-[0-9]{4}" title="Este campo aceita telefone residencial (XX) XXXX-XXXX ou celular (XX) XXXXX-XXXX">
+								</div>
+								
+								<div class="box">
+									<label for="nome_telefone_recado">Proprietário do Telefone (recado)</label>
+									<input type="text" id="nome_telefone_recado" name="nome_telefone_recado">
+								</div>									
+							</div>						  
+
+							<div class="container3">
+								<div class="box3">
+									<button class="botao_pequeno" type="button">Primeiro passo</button>
+									<button class="botao_pequeno" type="button">Passo anterior</button>
+									<button class="botao_pequeno" type="button">Gravar</button>
+								</div>
+							</div>
+						</form>
+					</span>					
+				</div>
+			</div>				
+		</div>
+	</body>
+</html>

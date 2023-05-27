@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>CEU - Centro Unificado Educacional Parque Bristol</title>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=poppins">	
+		<style>
+			* {
+				font-family:poppins;
+				color:#25476a;
+				box-sizing:border-box;
+				margin: auto;
+			}
+
+			.fonte_grande {
+				font-size:24px;
+				font-weight:bold;
+			}
+
+			.fonte_media {
+				font-size:16px
+			}
+
+			p {
+				margin:0 0 0.75em 0;
+			}
+		</style>
+	</head>
+	<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+	<table width="1346" height="411" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td rowspan="3"><img src="{% static '/assets/img/img01.png' %}" width="34" height="411"></td>
+			<td colspan="3"><img src="{% static '/assets/img/img02.png' %}" width="616" height="119"></td>
+			<td rowspan="3"><img src="{% static '/assets/img/img05.png' %}" width="23" height="411"></td>
+			<td rowspan="3"><img src="{% static '/assets/img/img06.png' %}" width="673" height="411"></td>
+		</tr>
+		<tr>
+			<td width="167" height="222" align="center" valign="middle" bgcolor="#FFFFFF">Foto</td>
+			<td><img src="{% static '/assets/img/img03.png' %}" width="22" height="222"></td>
+			<td width="427" height="222" align="left" valign="top" bgcolor="#FFFFFF">
+				<p class="fonte_grande">Carla Bianca Santos Latorre</p>
+				<span class="fonte_media">
+					<p><b>RG: </b>XX.XXX.XXX-X</p>
+					<p><b>EOL: </b>XXXXX</p>
+					<p><b>Data nasc.: </b>XX/XX/XXXX</p>
+					<p><b>Tel.: </b>(XX) XXXX-XXXX</p>
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3"><img src="{% static '/assets/img/img04.png' %}" width="616" height="70"></td>
+		</tr>
+	</table>
+
+	</body>
+</html>
