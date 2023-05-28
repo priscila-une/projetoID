@@ -170,7 +170,7 @@ input[type=text], input[type=password], input[type=email], input[type=date], tex
 }
 
 input[type=search] {
-    width:75%;
+    width:100%;
     padding:5px;
     font-size:0.875em;
     margin:0px 0px 15px 5px;

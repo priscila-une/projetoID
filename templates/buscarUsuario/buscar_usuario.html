@@ -20,7 +20,10 @@
 				</div>
 				<div id="topo-config-div">
 					<span class="baixo-esq"><img src="{% static '/assets/img/icone_home.png' %}">&nbsp;/ Buscar usuário</span>
-		  			<span class="alto-dir"><a href="#"><img src="{% static '/assets/img/icone_config.png' %}"></a><a href="#"><img src="{% static '/assets/img/icone_sair.png' %}"></a></span>
+		  			<span class="alto-dir">
+						<a href="{% url 'alterar_cadastro' sessao_funcionario_id=session.sessao_funcionario_id %}"><img src="{% static '/assets/img/icone_config.png' %}"></a>
+						<a href="{% url 'sair' %}"><img src="{% static '/assets/img/icone_sair.png' %}"></a>
+					</span>
 				</div>				
 			</div>		
 
@@ -39,8 +42,7 @@
 						<div class="container">
 							{% csrf_token %}
 							<form action="{% url 'pesquisa' %}" method="get" id="form-busca">								
-								<label for="consulta">Buscar</label>
-								<input type="search" placeholder="EOL ou nome do usuário" size="55" id="consulta" name="consulta" value="{{ request.session.input_value|default:'' }}" class="busca-input">								
+								<input type="search" placeholder="digite o EOL ou o nome do usuário" size="55" id="consulta" name="consulta" value="{{ request.session.input_value|default:'' }}" class="busca-input">								
 							</form>
 
 							<table class="cor_linhas_alternadas">

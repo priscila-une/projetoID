@@ -18,7 +18,10 @@
 				</div>
 				<div id="topo-config-div">
 					<span class="baixo-esq"><img src="{% static '/assets/img/icone_home.png' %}">&nbsp;/ Alterar conta</span>
-		  			<span class="alto-dir"><a href="#"><img src="{% static '/assets/img/icone_config.png' %}"></a><a href="#"><img src="{% static '/assets/img/icone_sair.png' %}"></a></span>
+					<span class="alto-dir">
+						<a href="{% url 'alterar_conta' CustomUser.idfunc %}"><img src="{% static '/assets/img/icone_config.png' %}"></a>
+						<a href="{% url 'sair' %}"><img src="{% static '/assets/img/icone_sair.png' %}"></a>
+					</span>
 				</div>
 			</div>		
 

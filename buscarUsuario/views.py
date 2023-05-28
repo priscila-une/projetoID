@@ -3,6 +3,7 @@ from .forms import SearchForm
 from django.contrib import messages
 from django.db.models import Q
 from criarConta.models import CustomUser #trocar depois pela tabela dos usuários
+from django.contrib.auth import authenticate, login
 
 def buscarUsuario(request):
     form = SearchForm(request.GET or None)
