@@ -13,10 +13,10 @@ def buscarUsuario(request):
         form = SearchForm(request.GET)
         if form.is_valid():
             consulta = form.cleaned_data['consulta']
-            request.session['input_value'] = consulta
+            #request.session['input_value'] = consulta
             results = CustomUser.objects.filter(Q(nome_completo__icontains=consulta) | Q(registro_funcional=consulta))
             results = results.order_by('nome_completo')
-            form = SearchForm(initial={'input_field': request.session.get('input_value', '')})
+            #form = SearchForm(initial={'input_field': request.session.get('input_value', '')})
 
     return render(request, 'buscarUsuario/buscar_usuario.html', {'form': form, 'results': results})
 
