@@ -7,12 +7,14 @@
     box-sizing:border-box;
 }
 
-.alerta {
+.error {
     font-size:12px;
     font-weight:bold;
     color:#ff0000;
     background-color:#ffff00;
     padding:8px;
+    border:none;    
+    border-radius:8px;    
 }
 
 .success {
@@ -21,6 +23,8 @@
     color:#007a29;
     background-color:#ffff00;
     padding:8px;
+    border:none;
+    border-radius:8px;    
 }
 
 body {

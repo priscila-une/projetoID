@@ -21,7 +21,7 @@
 				<div id="topo-config-div">
 					<span class="baixo-esq"><img src="{% static '/assets/img/icone_home.png' %}">&nbsp;/ Criar usuário ( Enviar documentos ) > Passo 4 de 4</span>
 					<span class="alto-dir">
-						<a href="{% url 'alterar_conta' %}"><img src="{% static '/assets/img/icone_config.png' %}"></a>
+						<a href="{% url 'alterar_cadastro' func_id=request.session.sessao_func_id %}"><img src="{% static '/assets/img/icone_config.png' %}"></a>
 						<a href="{% url 'sair' %}"><img src="{% static '/assets/img/icone_sair.png' %}"></a>
 					</span>
 				</div>

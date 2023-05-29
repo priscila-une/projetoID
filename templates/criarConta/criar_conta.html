@@ -17,9 +17,9 @@
 			<div id="principal-login-div">
 				{% if messages %}
 					{% for message in messages %}
-				  	<span class="alerta">{{ message|safe }}</span>
-					{% endfor %}
-			  	{% endif %}			
+						<span {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message|safe }}</span>
+				  	{% endfor %}
+			  	{% endif %}				
 				<!-- Formulário: Crie sua conta -->
 				<form action="{% url 'cadastro_funcionario' %}" method="POST">
 					{% csrf_token %}

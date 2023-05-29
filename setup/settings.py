@@ -57,6 +57,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+
 ROOT_URLCONF = 'setup.urls'
 
 TEMPLATES = [
@@ -139,4 +142,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTHENTICATION_BACKENDS = [
     'criarConta.backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',
+]
+
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
 ]

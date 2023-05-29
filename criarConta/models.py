@@ -34,7 +34,7 @@ class CustomUser(AbstractUser):
         related_name='custom_user_set'  # Unique related_name for CustomUser model
     )
 
-    username = None # username is set to None, so Django deletes the column from the database when migrations are applied
+    username = None # username é definido como None, o Django apaga a coluna da base de dados quando migrations é aplicado
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['registro_funcional', 'nome_completo']
 

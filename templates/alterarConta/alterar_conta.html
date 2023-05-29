@@ -19,7 +19,7 @@
 				<div id="topo-config-div">
 					<span class="baixo-esq"><img src="{% static '/assets/img/icone_home.png' %}">&nbsp;/ Alterar conta</span>
 					<span class="alto-dir">
-						<a href="{% url 'alterar_conta' CustomUser.idfunc %}"><img src="{% static '/assets/img/icone_config.png' %}"></a>
+						<a href="{% url 'alterar_cadastro' func_id=request.session.sessao_func_id %}"><img src="{% static '/assets/img/icone_config.png' %}"></a>						
 						<a href="{% url 'sair' %}"><img src="{% static '/assets/img/icone_sair.png' %}"></a>
 					</span>
 				</div>
@@ -37,37 +37,36 @@
 				<!-- Conteúdo da página -->
 				<div id="main-area-div">
 					<span class="area">
-						<form>
+						<form method="POST" action="{% url 'salvar_alteracoes' funcionario.idfunc %}">
+							{% csrf_token %}
 							<div class="container">
-
 								<div class="box4">
 									<label for="registro_funcional" class="fonte_media">Registro funcional</label>						
-									<span class="tooltip" data-tooltip="O Registro Funcional deve conter apenas números.">?</span>									
-									<input type="text" id="registro_funcional" name="registro_funcional" maxlength="10" pattern="^[0-9]{1,10}$" required>						
+									<input type="text" id="registro_funcional" name="registro_funcional" maxlength="10" pattern="^[0-9]{1,10}$" value="{{ funcionario.registro_funcional }}" disabled>						
 								</div>
 
 								<div class="box4">
-									<span>&nbsp;</span>
+									<span>&nbsp;</span>									
 								</div>
 								
 								<div class="box4">
 									<label for="nome_completo" class="fonte_media">Nome completo</label>
-									<input type="text" id="nome_completo" name="nome_completo" maxlength="40" required>						
+									<input type="text" id="nome_completo" name="nome_completo" value="{{ funcionario.nome_completo }}" maxlength="40" disabled>						
 								</div>						
 								
 								<div class="box4">
 									<label for="email" class="fonte_media">Endereço de email</label>
-									<input type="email" id="email" name="email" maxlength="30" required>
+									<input type="email" id="email" name="email" value="{{ funcionario.email }}" maxlength="30" disabled>
 								</div>									
 								
 								<div class="box4">
-									<label for="senha1" class="fonte_media">Senha</label>
+									<label for="senha1" class="fonte_media">Nova senha</label>
 									<span class="tooltip" data-tooltip="A senha deve conter no mínimo 8 e no máximo 15 caracteres. Deve incluir pelo menos uma letra maiúscula, uma letra minúscula, um número e um dos seguintes caracteres especiais: @ $ ! % * ? &">?</span>
 									<input type="password" id="senha1" name="senha1" maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" required>
 								</div>								
 
-								<div class="box4">
-									<label for="senha2" class="fonte_media">Repita a senha</label>
+								<div class="box4">									
+									<label for="senha2" class="fonte_media">Repita a nova senha</label>
 									<input type="password" id="senha2" name="senha2" maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" required>
 								</div>					  
 
@@ -77,7 +76,12 @@
 								</div>
 							</div>
 						</form>
-					</span>					
+					</span>	
+					{% if messages %}
+						{% for message in messages %}
+						<span {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message|safe }}</span>
+						{% endfor %}
+					{% endif %}										
 				</div>
 			</div>				
 		</div>
