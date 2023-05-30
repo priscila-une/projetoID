@@ -2,22 +2,22 @@ from django.db import models
 from criarConta.models import CustomUser
 
 class Usuario(models.Model):
-    idfunc = models.ForeignKey(CustomUser, on_delete=models.PROTECT, editable=False) #chave estrangeira
     # Passo 1
     id_usuario = models.AutoField(primary_key=True) # chave primária
-    numero_cadastro= models.IntegerField(max_length=20, null=True, blank=True)
-    eol = models.IntegerField(max_length=20, null=True, blank=True)
+    idfunc = models.ForeignKey(CustomUser, on_delete=models.PROTECT, editable=False) #chave estrangeira     
+    numero_cadastro= models.IntegerField(null=True, blank=True)
+    eol = models.IntegerField(null=True, blank=True)
     nome_completo = models.CharField(max_length=100, null=True, blank=True)
     nome_social = models.CharField(max_length=100, null=True, blank=True)
     raca_cor = models.CharField(max_length=20, null=True, blank=True)
     cidade = models.CharField(max_length=100, null=True, blank=True)
     uf = models.CharField(max_length=2, null=True, blank=True)
     data_nascimento = models.DateField(null=True, blank=True)
-    idade = models.PositiveSmallIntegerField(max_length=3, null=True, blank=True)
+    idade = models.PositiveSmallIntegerField(null=True, blank=True)
     certidao_nascimento = models.CharField(max_length=10, null=True, blank=True)
     folha = models.CharField(max_length=10, null=True, blank=True)
     livro = models.CharField(max_length=10, null=True, blank=True)
-    numero_certidao = models.IntegerField(max_length=10, null=True, blank=True)
+    numero_certidao = models.IntegerField(null=True, blank=True)
     rg = models.CharField(max_length=27, null=True, blank=True)
     data_expedicao = models.DateField(null=True, blank=True)
     necessidade_especial =  models.CharField(max_length=255, null=True, blank=True)

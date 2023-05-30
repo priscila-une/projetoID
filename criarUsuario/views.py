@@ -2,15 +2,30 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Usuario, CustomUser
 from buscarUsuario.views import buscarUsuario
 
-# criar uma loogica aonde eu busco os registros do funcionario
-# pelo nome que eu incluir no campo de busca e se achar o registro, me retornar na tela.
-
 def passo1(request):
     if request.method == 'POST':
         # Recuperar dados do formulário (Passo 1)
         form_passo1 = request.POST.dict()
         # Criar variáveis de sessão
         request.session.update(form_passo1)
+        # Armazenar os valores coletados do formulário (Passo 1) em sessões de variáveis 
+        request.session['numero_cadastro'] = form_passo1['numero_cadastro']
+        request.session['eol'] = form_passo1['eol']
+        request.session['nome_completo'] = form_passo1['nome_completo']
+        request.session['nome_social'] = form_passo1['nome_social']
+        request.session['raca_cor'] = form_passo1['raca_cor']
+        request.session['cidade'] = form_passo1['cidade']
+        request.session['uf'] = form_passo1['uf']
+        request.session['data_nascimento'] = form_passo1['data_nascimento'] 
+        request.session['idade'] = form_passo1['idade']
+        request.session['certidao_nascimento'] = form_passo1['certidao_nascimento']
+        request.session['folha'] = form_passo1['folha']
+        request.session['livro'] = form_passo1['livro']
+        request.session['numero_certidao'] = form_passo1['numero_certidao']
+        request.session['rg'] = form_passo1['rg']
+        request.session['data_expedicao'] = form_passo1['data_expedicao']
+        request.session['necessidade_especial'] = form_passo1['necessidade_especial']                        
+        request.session['nome_completo_responsavel'] = form_passo1['nome_completo_responsavel']
         # Redirecionar para o formulário -> Passo 2
         return redirect('passo_dois')
     else:
@@ -22,6 +37,15 @@ def passo2(request):
         form_passo2 = request.POST.dict()
         # Criar variáveis de sessão
         request.session.update(form_passo2)
+        # Armazenar os valores coletados do formulário (Passo 2) em sessões de variáveis
+        request.session['endereco'] = form_passo2['endereco']
+        request.session['endereco_numero'] = form_passo2['endereco_numero']
+        request.session['complemento'] = form_passo2['complemento']
+        request.session['cep'] = form_passo2['cep']
+        request.session['telefone_residencial'] = form_passo2['telefone_residencial']
+        request.session['telefone_celular'] = form_passo2['telefone_celular']
+        request.session['telefone_recado'] = form_passo2['telefone_recado']
+        request.session['nome_telefone_recado'] = form_passo2['nome_telefone_recado']              
         # Redirecionar para o formulário -> Passo 3
         return redirect('passo_tres')
     else:
@@ -33,59 +57,73 @@ def passo3(request):
         form_passo3 = request.POST.dict()
         # Criar variáveis de sessão
         request.session.update(form_passo3)
+       # Armazenar os valores coletados do formulário (Passo 3) em sessões de variáveis
+        request.session['tipo_sanguineo'] = form_passo3['tipo_sanguineo']
+        request.session['convenio'] = form_passo3['convenio']
+        request.session['alergias'] = form_passo3['alergias']
+        request.session['problemas_saude'] = form_passo3['problemas_saude']
+        request.session['tratamento_medico'] = form_passo3['tratamento_medico']
+        request.session['restricao_ativfisica'] = form_passo3['restricao_ativfisica']
+        request.session['lesao_fratura_cirurgia'] = form_passo3['lesao_fratura_cirurgia']                                            
         # Redirecionar para o formulário -> Passo 4
         return redirect('passo_quatro')
     else:
         return render(request,'criarUsuario/passo3_dadosmedicos.html')
 
 def passo4(request):
-
     if request.method == 'POST':
-        passo1_dados = request.session.get('passo1_data')
-        passo2_dados = request.session.get('passo2_data')
-        passo3_dados = request.session.get('passo3_data')
 
-        idfunc = request.session.get('user_id') #recuperando id da sessão
+       # id do funcionário que está logado (chave estrangeira)
+        func_id = request.session['sessao_func_id'] 
+        funcionario = CustomUser.objects.get(idfunc=func_id)
 
-        funcionario = get_object_or_404(Funcionario, idfunc=idfunc)
+        # Salvar os dados da sessão na base de dados
+        usuarios_data_forms = Usuario(
+            #----- Passo 1 -----#
+            idfunc = funcionario, 
+            numero_cadastro = request.session['numero_cadastro'],
+            eol = request.session['eol'],
+            nome_completo = request.session['nome_completo'],
+            nome_social = request.session['nome_social'],
+            raca_cor = request.session['raca_cor'],
+            cidade = request.session['cidade'],
+            uf = request.session['uf'],
+            data_nascimento = request.session['data_nascimento'],
+            idade = request.session['idade'],
+            certidao_nascimento = request.session['certidao_nascimento'],
+            folha = request.session['folha'],
+            livro = request.session['livro'],
+            numero_certidao = request.session['numero_certidao'],
+            rg = request.session['rg'],
+            data_expedicao = request.session['data_expedicao'],
+            necessidade_especial = request.session['necessidade_especial'],
+            nome_completo_responsavel = request.session['nome_completo_responsavel'],
+            #----- Passo 2 -----# 
+            endereco = request.session['endereco'], 
+            endereco_numero = request.session['endereco_numero'],
+            complemento = request.session['complemento'],
+            cep = request.session['cep'],
+            telefone_residencial = request.session['telefone_residencial'],
+            telefone_celular = request.session['telefone_celular'],
+            telefone_recado = request.session['telefone_recado'],
+            nome_telefone_recado = request.session['nome_telefone_recado'], 
+            #----- Passo 3 -----#
+            tipo_sanguineo = request.session['tipo_sanguineo'], 
+            convenio = request.session['convenio'], 
+            alergias = request.session['alergias'],
+            problemas_saude = request.session['problemas_saude'],
+            tratamento_médico = request.session['tratamento_médico'],
+            restricao_ativfisica = request.session['restricao_ativfisica'],
+            lesao_fratura_cirurgia = request.session['lesao_fratura_cirurgia']            
+        )
+        usuarios_data_forms.save()
 
-        dados_completos = {
-            'idfunc': funcionario,
-            'eol': passo1_dados.get('eol', ''),
-            'nome': passo1_dados.get('nome', ''),
-            'nomesocial': passo1_dados.get('nomesocial', ''),
-            'raca': passo1_dados.get('raca', ''),
-            'cidade': passo1_dados.get('cidade', ''),
-            'uf': passo1_dados.get('uf', ''),
-            'datanasc': passo1_dados.get('datanasc') or None,
-            'idade': passo1_dados.get('datanasc', ''),
-            'certidao': passo1_dados.get('certidao', ''),
-            'folha': passo1_dados.get('folha', ''),
-            'livro': passo1_dados.get('livro', ''),
-            'rg': passo1_dados.get('rg', ''),
-            'dataexp': passo1_dados.get('dataexp') or None,
-            'nespecial': passo1_dados.get('nespecial', ''),
-            'nomemae': passo1_dados.get('nomemae', ''),
-            'endereco': passo2_dados.get('endereco', ''),
-            'numendereco': passo2_dados.get('numero', ''),
-            'complemento': passo2_dados.get('complemento', ''),
-            'cep': passo2_dados.get('cep', ''),
-            'tel': passo2_dados.get('tel', ''),
-            'celular': passo2_dados.get('celular', ''),
-            'telrecado': passo2_dados.get('telrecado', ''),
-            'nomerecado': passo2_dados.get('nomerecado', ''),
-            'tpsanguineo': passo3_dados.get('tpsanguineo', ''),
-            'convenio': passo3_dados.get('convenio', ''),
-            'usamedicamento': passo3_dados.get('usamedicamento', ''),
-            'possuialergia': passo3_dados.get('possuialergia', ''),
-            'restricaoativ': passo3_dados.get('restricao_ativfisica', ''),
-            'problemasaude': passo3_dados.get('problemas_saude', ''),
-            'possuilesao': passo3_dados.get('lesao_fratura_cirurgia', '')
-        }
-    
-        formulario_completo = Usuario(**dados_completos)
-        formulario_completo.save()
-
+        #foto3x4
+        #rg_usuario
+        #cert_nasc_usuario
+        #rg_responsavel
+        #comprov_residencia
+        #autorizacao
         return buscarUsuario(request)
 
     else:

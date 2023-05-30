@@ -51,22 +51,22 @@
 
 								<div class="box">
 									<label for="numero_cadastro">Número de cadastro*</label>
-									<input type="text" id="numero_cadastro" name="numero_cadastro" required>
+									<input type="text" id="numero_cadastro" name="numero_cadastro" value="{{ request.session.numero_cadastro|default:'' }}" required>
 								</div>
 								
 								<div class="box">
 									<label for="eol">EOL*</label>
-									<input type="text" id="eol" name="eol" required>
+									<input type="text" id="eol" name="eol" value="{{ request.session.eol|default:'' }}" required>
 								</div>
 								
 								<div class="box">
 									<label for="nome_completo">Nome completo*</label>
-									<input type="text" id="nome_completo" name="nome_completo" required>
+									<input type="text" id="nome_completo" name="nome_completo" value="{{ request.session.nome_completo|default:'' }}" required>
 								</div>
 						
 								<div class="box">
 									<label for="nome_social">Nome social (se tiver)</label>
-									<input type="text" id="nome_social" name="nome_social">
+									<input type="text" id="nome_social" name="nome_social" value="{{ request.session.nome_social|default:'' }}">
 								</div>	
 							</div>		
 								
@@ -74,89 +74,89 @@
 								<label for="raca_cor">Raça/cor*</label>
 								<select id="raca_cor" name="raca_cor" required>
 									<option disabled="disabled" selected="selected">Selecione raça/cor</option>
-									<option value="amarela">Amarela</option>
-									<option value="branca">Branca</option>
-									<option value="indígena">Indígena</option>
-									<option value="parda">Parda</option>
-									<option value="preta">Preta</option>						  							  					 
+									<option value="amarela" {% if request.session.raca_cor == 'amarela' %}selected{% endif %}>Amarela</option>
+									<option value="branca" {% if request.session.raca_cor == 'branca' %}selected{% endif %}>Branca</option>
+									<option value="indígena" {% if request.session.raca_cor == 'indígena' %}selected{% endif %}>Indígena</option>
+									<option value="parda" {% if request.session.raca_cor == 'parda' %}selected{% endif %}>Parda</option>
+									<option value="preta" {% if request.session.raca_cor == 'preta' %}selected{% endif %}>Preta</option>						  							  					 
 								</select>		
 							</div>
 						
 							<div class="container">	
 								<div class="box">
 									<label for="cidade">Natural de (cidade)*</label>
-									<input type="text" id="cidade" name="cidade" required>		
+									<input type="text" id="cidade" name="cidade" value="{{ request.session.cidade|default:'' }}" required>		
 								</div>	
 						
 								<div class="box">
 									<label for="uf">UF*</label>
 									<select id="uf" name="uf" required>
 										<option disabled="disabled" selected="selected">Selecione a Unidade Federativa</option>
-										<option value="AC">Acre (AC)</option>
-										<option value="AL">Alagoas (AL)</option>
-										<option value="AP">Amapá (AP)</option>
-										<option value="AM">Amazonas (AM)</option>
-										<option value="BA">Bahia (BA)</option>
-										<option value="CE">Ceará (CE)</option>
-										<option value="DF">Distrito Federal (DF)</option>
-										<option value="ES">Espírito Santo (ES)</option>
-										<option value="GO">Goiás (GO)</option>
-										<option value="MA">Maranhão (MA)</option>
-										<option value="MT">Mato Grosso (MT)</option>
-										<option value="MS">Mato Grosso do Sul (MS)</option>
-										<option value="MG">Minas Gerais (MG)</option>
-										<option value="PA">Pará (PA)</option>
-										<option value="PB">Paraíba (PB)</option>
-										<option value="PR">Paraná (PR)</option>
-										<option value="PE">Pernambuco (PE)</option>
-										<option value="PI">Piauí (PI)</option>
-										<option value="RJ">Rio de Janeiro (RJ)</option>
-										<option value="RN">Rio Grande do Norte (RN)</option>
-										<option value="RS">Rio Grande do Sul (RS)</option>
-										<option value="RO">Rondônia (RO)</option>
-										<option value="RR">Roraima (RR)</option>
-										<option value="SC">Santa Catarina (SC)</option>
-										<option value="SP">São Paulo (SP)</option>
-										<option value="SE">Sergipe (SE)</option>
-										<option value="TO">Tocantins (TO)</option>
+										<option value="AC" {% if request.session.uf == 'AC' %}selected{% endif %}>Acre (AC)</option>
+										<option value="AL" {% if request.session.uf == 'AL' %}selected{% endif %}>Alagoas (AL)</option>
+										<option value="AP" {% if request.session.uf == 'AP' %}selected{% endif %}>Amapá (AP)</option>
+										<option value="AM" {% if request.session.uf == 'AM' %}selected{% endif %}>Amazonas (AM)</option>
+										<option value="BA" {% if request.session.uf == 'BA' %}selected{% endif %}>Bahia (BA)</option>
+										<option value="CE" {% if request.session.uf == 'CE' %}selected{% endif %}>Ceará (CE)</option>
+										<option value="DF" {% if request.session.uf == 'DF' %}selected{% endif %}>Distrito Federal (DF)</option>
+										<option value="ES" {% if request.session.uf == 'ES' %}selected{% endif %}>Espírito Santo (ES)</option>
+										<option value="GO" {% if request.session.uf == 'GO' %}selected{% endif %}>Goiás (GO)</option>
+										<option value="MA" {% if request.session.uf == 'MA' %}selected{% endif %}>Maranhão (MA)</option>
+										<option value="MT" {% if request.session.uf == 'MT' %}selected{% endif %}>Mato Grosso (MT)</option>
+										<option value="MS" {% if request.session.uf == 'MS' %}selected{% endif %}>Mato Grosso do Sul (MS)</option>
+										<option value="MG" {% if request.session.uf == 'MG' %}selected{% endif %}>Minas Gerais (MG)</option>
+										<option value="PA" {% if request.session.uf == 'PA' %}selected{% endif %}>Pará (PA)</option>
+										<option value="PB" {% if request.session.uf == 'PB' %}selected{% endif %}>Paraíba (PB)</option>
+										<option value="PR" {% if request.session.uf == 'PR' %}selected{% endif %}>Paraná (PR)</option>
+										<option value="PE" {% if request.session.uf == 'PE' %}selected{% endif %}>Pernambuco (PE)</option>
+										<option value="PI" {% if request.session.uf == 'PI' %}selected{% endif %}>Piauí (PI)</option>
+										<option value="RJ" {% if request.session.uf == 'RJ' %}selected{% endif %}>Rio de Janeiro (RJ)</option>
+										<option value="RN" {% if request.session.uf == 'RN' %}selected{% endif %}>Rio Grande do Norte (RN)</option>
+										<option value="RS" {% if request.session.uf == 'RS' %}selected{% endif %}>Rio Grande do Sul (RS)</option>
+										<option value="RO" {% if request.session.uf == 'RO' %}selected{% endif %}>Rondônia (RO)</option>
+										<option value="RR" {% if request.session.uf == 'RR' %}selected{% endif %}>Roraima (RR)</option>
+										<option value="SC" {% if request.session.uf == 'SC' %}selected{% endif %}>Santa Catarina (SC)</option>
+										<option value="SP" {% if request.session.uf == 'SP' %}selected{% endif %}>São Paulo (SP)</option>
+										<option value="SE" {% if request.session.uf == 'SE' %}selected{% endif %}>Sergipe (SE)</option>
+										<option value="TO" {% if request.session.uf == 'TO' %}selected{% endif %}>Tocantins (TO)</option>
 									</select>		
 								</div>
 						
 								<div class="box">
 									<label for="data_nascimento">Data de nascimento*</label>
-									<input type="date" id="data_nascimento" name="data_nascimento" required>		
+									<input type="date" id="data_nascimento" name="data_nascimento" value="{{ request.session.data_nascimento|date:'d-m-Y' }}" required>		
 								</div>	
 						
 								<div class="box">
 									<label for="idade">Idade*</label>
-									<input type="text" id="idade" name="idade" required>		
+									<input type="text" id="idade" name="idade" value="{{ request.session.idade|default:'' }}" required>		
 								</div>
 						
 								<div class="box">
 									<label for="certidao_nascimento">Certidão de nascimento</label>
-									<input type="text" id="certidao_nascimento" name="certidao_nascimento" required>		
+									<input type="text" id="certidao_nascimento" name="certidao_nascimento" value="{{ request.session.certidao_nascimento|default:'' }}" required>		
 								</div>	
 								
 								<div class="container2">
 									<p>Certidão (modelo antigo)</p>
 									<div class="box2">
 										<label for="folha">Folha</label>
-										<input type="text" id="folha" name="folha" size="10">
+										<input type="text" id="folha" name="folha" size="10" value="{{ request.session.folha|default:'' }}">
 										<label for="livro">Livro</label>
-										<input type="text" id="livro" name="livro" size="10">
+										<input type="text" id="livro" name="livro" size="10" value="{{ request.session.livro|default:'' }}">
 										<label for="numero_certidao">N.o</label>
-										<input type="text" id="numero_certidao" name="numero_certidao" size="10">		
+										<input type="text" id="numero_certidao" name="numero_certidao" size="10" value="{{ request.session.numero_certidao|default:'' }}">		
 									</div>
 								</div>
 						
 								<div class="box">
 									<label for="rg">RG</label>
-									<input type="text" id="rg" name="rg" required>		
+									<input type="text" id="rg" name="rg" value="{{ request.session.rg|default:'' }}" required>		
 								</div>
 						
 								<div class="box">
 									<label for="data_expedicao">Data de expedição</label>
-									<input type="date" id="data_expedicao" name="data_expedicao" required>		
+									<input type="date" id="data_expedicao" name="data_expedicao" value="{{ request.session.data_expedicao|date:'d-m-Y' }}" required>		
 								</div>	
 							</div>
 							
@@ -166,12 +166,12 @@
 									<label><input type="radio" name="necessidade_especial" value="enabled" checked>Sim</label>
 									<label><input type="radio" name="necessidade_especial" value="disabled">Não</label>
 								</div>
-								<textarea id="necessidade_especial" name="necessidade_especial" rows="5" maxlength="400" style="resize: none" placeholder="Descreva-a neste campo se a resposta for 'Sim'."></textarea>		
+								<textarea id="necessidade_especial" name="necessidade_especial" rows="5" maxlength="400" style="resize: none" placeholder="Descreva-a neste campo se a resposta for 'Sim'.">{{ request.session.necessidade_especial }}</textarea>		
 							</div>	
 							
 							<div class="box">
 								<label for="nome_completo_responsavel">Nome completo do responsável<br>(apenas para usuários menores de 18 anos)</label>
-								<input type="text" id="nome_completo_responsavel" name="nome_completo_responsavel">
+								<input type="text" id="nome_completo_responsavel" name="nome_completo_responsavel" value="{{ request.session.nome_completo_responsavel|default:'' }}">
 							</div>
 						  
 							<div class="container3">
