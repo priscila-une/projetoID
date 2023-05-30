@@ -42,6 +42,17 @@
 				<td width="167" height="222" align="center" valign="middle" bgcolor="#FFFFFF">Foto</td>
 				<td><img src="{% static '/assets/img/credencial04.png' %}" width="22" height="222"></td>
 				<td width="427" height="222" align="left" valign="top" bgcolor="#FFFFFF">
+						<!--<a href="{% url 'gera_credencial' user_id=usuario.idusuario %}">
+						{% if usuario.nomesocial %}
+						<p class="fonte_grande">{{ usuario.nomesocial }}</p>
+						<span class="fonte_media">
+							<p><b>RG: </b>{{ usuario.registro_funcional }}</p>
+							<p><b>EOL: </b>{{ usuario.eol }}</p>
+							<p><b>Data nasc.: </b>{{ usuario.datanasc }}</p>
+							<p><b>Tel.: </b>{{ usuario.celular}}</p>
+						</span>
+						</a>
+						{% else %}-->
 						<p class="fonte_grande">{{ usuario.nome_completo }}</p>
 						<span class="fonte_media">
 							<p><b>RG: </b>{{ usuario.registro_funcional }}</p>
@@ -49,11 +60,13 @@
 							<p><b>Data nasc.: </b>{{ usuario.datanasc }}</p>
 							<p><b>Tel.: </b>{{ usuario.celular}}</p>
 						</span>
+						</a>
+						<!--{% endif %}-->
 				</td>
 
 			</tr>
 			<tr>
-				<td colspan="4"><img src="{% static '/assets/img/credencial05.png' %}" width="650" height="70"></td>
+				<td colspan="4"><img src="{% static '/assets/imagens/credencial05.png' %}" width="650" height="70"></td>
 			</tr>
 		</table>
 	</body>

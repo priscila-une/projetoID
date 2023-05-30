@@ -1,0 +1,46 @@
+from django import forms
+from .models import Usuario
+
+class CadUsuarioForm(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = [ 
+            'numero_cadastro',
+            'eol',
+            'nome_completo',
+            'nome_social',
+            'raca_cor',
+            'cidade',
+            'uf',
+            'data_nascimento',
+            'idade',
+            'certidao_nascimento',
+            'folha',
+            'livro',
+            'numero_certidao',
+            'rg',
+            'data_expedicao',
+            'necessidade_especial',
+            'nome_completo_responsavel',
+            'endereco',
+            'endereco_numero',
+            'complemento',
+            'cep',
+            'telefone_residencial',
+            'telefone_celular',
+            'telefone_recado',
+            'nome_telefone_recado',
+            'tipo_sanguineo',
+            'convenio',
+            'alergias',
+            'problemas_saude',
+            'tratamento_médico',
+            'restricao_ativfisica',
+            'lesao_fratura_cirurgia',
+            'foto3x4',
+            'rg_usuario',
+            'cert_nasc_usuario',
+            'rg_responsavel',
+            'comprov_residencia',
+            'autorizacao',
+        ]

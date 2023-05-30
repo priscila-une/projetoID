@@ -39,10 +39,10 @@
 				<td width="167" height="222" align="center" valign="middle" bgcolor="#FFFFFF">Foto</td>
 				<td><img src="{% static '/assets/img/credencial04.png' %}" width="22" height="222"></td>
 				<td width="427" height="222" align="left" valign="top" bgcolor="#FFFFFF">
-					<p class="fonte_grande">Carla Bianca Santos Latorre</p>
+					<p class="fonte_grande">{{ usuario.nome_completo }}</p>
 					<span class="fonte_media">
 						<p><b>RG: </b>XX.XXX.XXX-X</p>
-						<p><b>EOL: </b>XXXXX</p>
+						<p><b>EOL: </b>{{ usuario.registro_funcional }}</p>
 						<p><b>Data nasc.: </b>XX/XX/XXXX</p>
 						<p><b>Tel.: </b>(XX) XXXX-XXXX</p>
 					</span>

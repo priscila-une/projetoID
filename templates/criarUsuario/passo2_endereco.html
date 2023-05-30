@@ -37,7 +37,8 @@
 				<!-- Conteúdo da página -->
 				<div id="main-area-div">
 					<span class="area">
-						<form>
+						<form action="{% url 'passo_dois' %}" method="post">
+							{% csrf_token %}
 							<div class="container">
 								<div class="box">
 									<span>Campos marcados com * são obrigatórios.</span>
@@ -90,9 +91,8 @@
 
 							<div class="container3">
 								<div class="box3">
-									<button class="botao_pequeno" type="button">Primeiro passo</button>
-									<button class="botao_pequeno" type="button">Passo anterior</button>
-									<button class="botao_pequeno" type="button">Gravar</button>
+									<button class="botao_pequeno" type="button"><a href="{% url 'passo_um' %}">Passo anterior</a></button>									  
+									<button class="botao_pequeno" type="submit">Próximo passo</button>
 								</div>
 							</div>
 						</form>

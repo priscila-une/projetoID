@@ -40,15 +40,15 @@
 				<div id="main-area-div">
 					<span class="area">
 						<div class="container">
-							{% csrf_token %}
-							<form action="{% url 'pesquisa' %}" method="get" id="form-busca">								
+							<form action="{% url 'pesquisa' %}" method="get" id="form-busca">
+								{% csrf_token %}								
 								<input type="search" placeholder="digite o EOL ou o nome do usuário" size="55" id="consulta" name="consulta" value="{{ request.session.input_value|default:'' }}" class="busca-input">								
 							</form>
 
 							<table class="cor_linhas_alternadas">
 								<tr>
-									<th style="width:10%;">EOL</th>
-									<th style="width:30%;">NOME COMPLETO</th>
+									<th style="width:15%;">EOL</th>
+									<th style="width:35%;">NOME COMPLETO</th>
 									<th>AÇÕES</th>									
 								</tr>
 
