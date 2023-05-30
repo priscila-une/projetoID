@@ -78,7 +78,7 @@ def passo4(request):
         funcionario = CustomUser.objects.get(idfunc=func_id)
 
         # Salvar os dados da sessão na base de dados
-        usuarios_data_forms = Usuario(
+        dados_do_usuario = Usuario(
             #----- Passo 1 -----#
             idfunc = funcionario, 
             numero_cadastro = request.session['numero_cadastro'],
@@ -112,11 +112,23 @@ def passo4(request):
             convenio = request.session['convenio'], 
             alergias = request.session['alergias'],
             problemas_saude = request.session['problemas_saude'],
-            tratamento_médico = request.session['tratamento_médico'],
+            tratamento_medico = request.session['tratamento_medico'],
             restricao_ativfisica = request.session['restricao_ativfisica'],
             lesao_fratura_cirurgia = request.session['lesao_fratura_cirurgia']            
         )
-        usuarios_data_forms.save()
+        dados_do_usuario.save()
+
+        #----- Apagar o conteúdo das variáveis de sessão, exceto as do funcionário logado -----#
+        # Identificar quais são as variáveis de sessão relacionadas ao funcionário logado
+        variaveis_sessao_funcionario = ['email', 'password', 'sessao_func_id']
+
+        # Iterar sobre as variáveis de sessão
+        for key in list(request.session.keys()):
+            if key not in variaveis_sessao_funcionario:
+                del request.session[key]
+
+        # Salvar a modificação da sessão
+        request.session.modified = True
 
         #foto3x4
         #rg_usuario

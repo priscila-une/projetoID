@@ -35,6 +35,7 @@ def logado(request):
     #return render(request, 'login/login.html')
 
 def deslogado(request):
+    request.session.flush()
     logout(request)
     # Redirecionar para uma URL específica após deslogar
     return redirect('/')

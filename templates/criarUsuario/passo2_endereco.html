@@ -50,42 +50,42 @@
 														
 								<div class="box">
 									<label for="endereco">Endereço*</label>
-									<input type="text" id="endereco" name="endereco" required>
+									<input type="text" id="endereco" name="endereco" value="{{ request.session.endereco|default:'' }}" required>
 								</div>
 								
 								<div class="box">
 									<label for="endereco_numero">Número*</label>
-									<input type="text" id="endereco_numero" name="endereco_numero" required>
+									<input type="text" id="endereco_numero" name="endereco_numero" value="{{ request.session.endereco_numero|default:'' }}" required>
 								</div>
 								
 								<div class="box">
 									<label for="complemento">Complemento</label>
-									<input type="text" id="complemento" name="complemento">
+									<input type="text" id="complemento" name="complemento" value="{{ request.session.complemento|default:'' }}">
 								</div>
 								
 								<div class="box">
 									<label for="cep">CEP*</label>
-									<input type="text" id="cep" name="cep" placeholder="XXXXX-XXX" pattern="[0-9]{5}-[0-9]{3}" title="Formato do CEP: XXXXX-XXX" required>
+									<input type="text" id="cep" name="cep" placeholder="XXXXX-XXX" pattern="[0-9]{5}-[0-9]{3}" title="Formato do CEP: XXXXX-XXX" value="{{ request.session.cep|default:'' }}" required>
 								</div>
 								
 								<div class="box">
 									<label for="telefone_residencial">Telefone residencial</label>
-									<input type="text" id="telefone_residencial" name="telefone_residencial" placeholder="(XX) XXXX-XXXX" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4}" title="Formato do Telefone residencial: (XX) XXXX-XXXX">
+									<input type="text" id="telefone_residencial" name="telefone_residencial" placeholder="(XX) XXXX-XXXX" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4}" title="Formato do Telefone residencial: (XX) XXXX-XXXX" value="{{ request.session.telefone_residencial|default:'' }}">
 								</div>
 								
 								<div class="box">
 									<label for="telefone_celular">Telefone celular</label>
-									<input type="text" id="telefone_celular" name="telefone_celular" placeholder="(XX) XXXXX-XXXX" pattern="\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}" title="Formato do Telefone celular: (XX) XXXXX-XXXX">
+									<input type="text" id="telefone_celular" name="telefone_celular" placeholder="(XX) XXXXX-XXXX" pattern="\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}" title="Formato do Telefone celular: (XX) XXXXX-XXXX" value="{{ request.session.telefone_celular|default:'' }}">
 								</div>		
 						
 								<div class="box">
 									<label for="telefone_recado">Telefone (recado)</label>
-									<input type="text" id="telefone_recado" name="telefone_recado" placeholder="(XX) XXXX-XXXX ou (XX) XXXXX-XXXX " pattern="\([0-9]{2}\)[\s][0-9]{4,5}-[0-9]{4}" title="Este campo aceita telefone residencial (XX) XXXX-XXXX ou celular (XX) XXXXX-XXXX">
+									<input type="text" id="telefone_recado" name="telefone_recado" placeholder="(XX) XXXX-XXXX ou (XX) XXXXX-XXXX " pattern="\([0-9]{2}\)[\s][0-9]{4,5}-[0-9]{4}" title="Este campo aceita telefone residencial (XX) XXXX-XXXX ou celular (XX) XXXXX-XXXX" value="{{ request.session.telefone_recado|default:'' }}">
 								</div>
 								
 								<div class="box">
 									<label for="nome_telefone_recado">Proprietário do Telefone (recado)</label>
-									<input type="text" id="nome_telefone_recado" name="nome_telefone_recado">
+									<input type="text" id="nome_telefone_recado" name="nome_telefone_recado" value="{{ request.session.nome_telefone_recado|default:'' }}">
 								</div>									
 							</div>						  
 
