@@ -5,8 +5,7 @@ urlpatterns = [
     path('pesquisa', buscarUsuario, name='pesquisa'),
     path('buscarUsuario/', buscarUsuario, name='buscar_usuario'),
 
-    path('credencial/<int:func_id>/', credencial, name='gera_credencial'),
     path('credencial', credencial, name='credencial'),
-
-    path('exclui_usuario/<int:func_id>/', exclui_usuario, name='exclui_usuario'),
+    path('credencial/<int:usuario_id>/', credencial, name='gera_credencial'),
+    path('exclui_usuario/<int:usuario_id>/', exclui_usuario, name='exclui_usuario'),
 ]
