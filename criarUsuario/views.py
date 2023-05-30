@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Usuario, CustomUser
 from buscarUsuario.views import buscarUsuario
+from django.contrib import messages
+from django.utils import timezone
+from datetime import datetime
 
 def passo1(request):
     if request.method == 'POST':
@@ -16,16 +19,29 @@ def passo1(request):
         request.session['raca_cor'] = form_passo1['raca_cor']
         request.session['cidade'] = form_passo1['cidade']
         request.session['uf'] = form_passo1['uf']
-        request.session['data_nascimento'] = form_passo1['data_nascimento'] 
+
+        # Formatação do campo 'date' de data_nascimento
+        data_nascimento_str = form_passo1['data_nascimento']
+        data_nascimento = datetime.strptime(data_nascimento_str,'%Y-%m-%d')
+        data_nascimento_formatado = data_nascimento.strftime('%Y-%m-%d')  
+        request.session['data_nascimento'] = data_nascimento_formatado # Atribuir a data formatada à variável de sessão
+
         request.session['idade'] = form_passo1['idade']
         request.session['certidao_nascimento'] = form_passo1['certidao_nascimento']
         request.session['folha'] = form_passo1['folha']
         request.session['livro'] = form_passo1['livro']
         request.session['numero_certidao'] = form_passo1['numero_certidao']
         request.session['rg'] = form_passo1['rg']
-        request.session['data_expedicao'] = form_passo1['data_expedicao']
+
+        # Formatação do campo 'date' de data_expedicao
+        data_expedicao_str = form_passo1['data_expedicao']
+        data_expedicao = datetime.strptime(data_expedicao_str,'%Y-%m-%d')
+        data_expedicao_formatado = data_expedicao.strftime('%Y-%m-%d')  
+        request.session['data_expedicao'] = data_expedicao_formatado # Atribuir a data formatada à variável de sessão
+
         request.session['necessidade_especial'] = form_passo1['necessidade_especial']                        
         request.session['nome_completo_responsavel'] = form_passo1['nome_completo_responsavel']
+
         # Redirecionar para o formulário -> Passo 2
         return redirect('passo_dois')
     else:
@@ -136,7 +152,9 @@ def passo4(request):
         #rg_responsavel
         #comprov_residencia
         #autorizacao
-        return buscarUsuario(request)
+
+        messages.success(request, "O usuário foi cadastrado com sucesso!") 
+        return render (request,'criarUsuario/passo1_dadospessoais.html')
 
     else:
         return render (request,'criarUsuario/passo4_enviardocumentos.html')

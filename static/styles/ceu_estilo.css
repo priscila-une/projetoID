@@ -146,6 +146,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     justify-content:space-between;
 }
 
+.btn_color {
+    color:#ffffff;
+}
+
+a { text-decoration: none; }
 a:link { text-decoration: none; }
 a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
@@ -179,6 +184,7 @@ a:active { text-decoration: none; }
     text-decoration: none;
 }
   
+
 input[type=text], input[type=password], input[type=email], input[type=date], textarea, select {
     width:100%;
     padding:5px;
