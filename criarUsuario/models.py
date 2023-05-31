@@ -4,7 +4,7 @@ from criarConta.models import CustomUser
 class Usuario(models.Model):
     # Passo 1
     id_usuario = models.AutoField(primary_key=True) # chave primária
-    idfunc = models.ForeignKey(CustomUser, on_delete=models.PROTECT, editable=False) #chave estrangeira     
+    idfunc = models.ForeignKey(CustomUser, on_delete=models.PROTECT, editable=False) #chave estrangeira (id do funcionário)     
     numero_cadastro= models.IntegerField(null=True, blank=True, default=None)
     eol = models.IntegerField(null=True, blank=True, default=None)
     nome_completo = models.CharField(max_length=100, null=True, blank=True)
@@ -40,9 +40,9 @@ class Usuario(models.Model):
     restricao_ativfisica = models.CharField(max_length=100, null=True, blank=True)    
     lesao_fratura_cirurgia = models.CharField(max_length=100, null=True, blank=True)    
     # Passo 4
-    foto3x4 = models.ImageField(upload_to='documentos/', blank=True)
-    rg_usuario = models.FileField(upload_to = 'documentos/', blank=True)
-    cert_nasc_usuario = models.FileField(upload_to = 'documentos/', blank=True)
-    rg_responsavel = models.FileField(upload_to = 'documentos/', blank=True)
-    comprov_residencia = models.FileField(upload_to = 'documentos/', blank=True)
-    autorizacao = models.FileField(upload_to = 'documentos/', blank=True)    
+    foto3x4 = models.ImageField(upload_to='documentos/', blank=True) # imagem .png, .jpg ou .jpeg
+    rg_usuario = models.FileField(upload_to = 'documentos/', blank=True) # documento .pdf
+    cert_nasc_usuario = models.FileField(upload_to = 'documentos/', blank=True) # documento .pdf
+    rg_responsavel = models.FileField(upload_to = 'documentos/', blank=True) # documento .pdf
+    comprov_residencia = models.FileField(upload_to = 'documentos/', blank=True) # documento .pdf
+    autorizacao = models.FileField(upload_to = 'documentos/', blank=True) # documento .pdf    

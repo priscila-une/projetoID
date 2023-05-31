@@ -48,7 +48,7 @@
 								<div class="box">
 									<span>
 										{% if messages %}
-										{% for message in messages %}
+											{% for message in messages %}
 											<span {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message|safe }}</span>
 										  {% endfor %}
 									  {% endif %}

@@ -5,6 +5,66 @@ from django.contrib import messages
 from django.utils import timezone
 from datetime import datetime
 
+def editarUsuario(request, usuario_id):  
+    
+    if 'id_usuario' not in request.session:
+        usuario = get_object_or_404(Usuario, id_usuario=usuario_id)
+
+        # data_nascimento (campo DateField)
+        data_nascimento_valor = usuario.data_nascimento
+        data_nascimento_formatado = data_nascimento_valor.strftime('%Y-%m-%d')
+        request.session['data_nascimento'] = data_nascimento_formatado
+
+        # data_expedição (campo DateField)
+        data_expedicao_valor = usuario.data_expedicao
+        data_expedicao_formatado = data_expedicao_valor.strftime('%Y-%m-%d')
+        request.session['data_expedicao'] = data_expedicao_formatado 
+
+        #Lista de nomes de atributos para atribuir a variáveis ​​de sessão
+        #atributos = ['id_usuario', 'numero_cadastro', 'eol', 'nome_completo', 'nome_social', 'raca_cor',
+        #             'cidade', 'uf', 'data_nascimento', 'idade', 'certidao_nascimento', 'folha', 'livro', 'numero_certidao',
+        #             'rg', 'data_expedicao', 'necessidade_especial', 'nome_completo_responsavel', 'endereco',
+        #             'endereco_numero', 'complemento', 'cep', 'telefone_residencial', 'telefone_celular',
+        #             'telefone_recado', 'nome_telefone_recado', 'tipo_sanguineo', 'convenio', 'alergias', 
+        #             'problemas_saude','tratamento_medico', 'restricao_ativfisica', 'lesao_fratura_cirurgia',
+        #             'foto3x4', 'rg_usuario', 'cert_nasc_usuario', 'rg_responsavel', 'comprov_residencia', 'autorizacao'
+        #            ]
+        
+        # Para criar variáveis de sessão em lote
+        atributos = ['id_usuario', 'numero_cadastro', 'eol', 'nome_completo', 'nome_social', 'raca_cor',
+                    'cidade', 'uf', 'idade', 'certidao_nascimento', 'folha', 'livro', 'numero_certidao',
+                    'rg', 'necessidade_especial', 'nome_completo_responsavel', 'endereco',
+                    'endereco_numero', 'complemento', 'cep', 'telefone_residencial', 'telefone_celular',
+                    'telefone_recado', 'nome_telefone_recado', 'tipo_sanguineo', 'convenio', 'alergias', 
+                    'problemas_saude','tratamento_medico', 'restricao_ativfisica', 'lesao_fratura_cirurgia'
+                    ]    
+
+        for atributo in atributos:
+            valor = getattr(usuario, atributo)
+            if valor == 'disabled':
+                valor = ''
+            request.session[atributo] = valor
+
+        # Redirecionar para o formulário -> Passo 1
+        return redirect('passo_um')
+    else:
+        usuario.save()
+        messages.success(request, "Dados do usuário atualizados com sucesso!")
+
+        ###### Apagar o conteúdo das variáveis de sessão, exceto as do funcionário logado ######
+        # Identificar quais são as variáveis de sessão do funcionário logado
+        variaveis_sessao_funcionario = ['email', 'password', 'sessao_func_id']
+
+        # Iterar sobre as variáveis de sessão
+        for key in list(request.session.keys()):
+            if key not in variaveis_sessao_funcionario:
+                del request.session[key]
+
+        # Salvar a modificação da sessão
+        request.session.modified = True
+
+        return render (request,'criarUsuario/passo1_dadospessoais.html')        
+
 def passo1(request):
     if request.method == 'POST':
         # Recuperar dados do formulário (Passo 1)
@@ -132,10 +192,17 @@ def passo4(request):
             restricao_ativfisica = request.session['restricao_ativfisica'],
             lesao_fratura_cirurgia = request.session['lesao_fratura_cirurgia']            
         )
-        dados_do_usuario.save()
+        
+        # Decidindo se atualiza ou insiro os dados do usuário em razão da presença do id_usuario nas variáveis de sessão
+        if 'id_usuario' in request.session:
+            # Redirecionar para o método editarUsuario
+            return redirect('editar_usuario')
+        else: # cadastre o usuário                      
+            dados_do_usuario.save()
+            messages.success(request, "O usuário foi cadastrado com sucesso!")
 
-        #----- Apagar o conteúdo das variáveis de sessão, exceto as do funcionário logado -----#
-        # Identificar quais são as variáveis de sessão relacionadas ao funcionário logado
+        ###### Apagar o conteúdo das variáveis de sessão, exceto as do funcionário logado ######
+        # Identificar quais são as variáveis de sessão do funcionário logado
         variaveis_sessao_funcionario = ['email', 'password', 'sessao_func_id']
 
         # Iterar sobre as variáveis de sessão
@@ -153,7 +220,6 @@ def passo4(request):
         #comprov_residencia
         #autorizacao
 
-        messages.success(request, "O usuário foi cadastrado com sucesso!") 
         return render (request,'criarUsuario/passo1_dadospessoais.html')
 
     else:
