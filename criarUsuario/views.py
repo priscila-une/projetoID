@@ -20,7 +20,31 @@ def editarUsuario(request, usuario_id):
     # data_expedição (campo tipo 'DateField')
     data_expedicao_valor = usuario.data_expedicao
     data_expedicao_formatado = data_expedicao_valor.strftime('%Y-%m-%d')
-    request.session['data_expedicao'] = data_expedicao_formatado 
+    request.session['data_expedicao'] = data_expedicao_formatado
+
+    # foto3x4 (campo tipo ImageField)
+    foto3x4_nome = usuario.foto3x4.name # Obter o nome do arquivo do ImageField
+    request.session['foto3x4'] = foto3x4_nome # Armazena o nome da imagem na variável de sessão
+
+    # rg_usuario (campo tipo FileField)
+    rg_usuario_nome = usuario.rg_usuario.name 
+    request.session['rg_usuario'] = rg_usuario_nome
+
+    # cert_nasc_usuario (campo tipo FileField)
+    cert_nasc_usuario_nome = usuario.cert_nasc_usuario.name 
+    request.session['cert_nasc_usuario'] = cert_nasc_usuario_nome
+
+    # rg_responsavel (campo tipo FileField)
+    rg_responsavel_nome = usuario.rg_responsavel.name 
+    request.session['rg_responsavel'] = rg_responsavel_nome
+
+    # comprov_residencia (campo tipo FileField)
+    comprov_residencia_nome = usuario.comprov_residencia.name 
+    request.session['comprov_residencia'] = comprov_residencia_nome
+
+    # autorizacao (campo tipo FileField)
+    autorizacao_nome = usuario.autorizacao.name 
+    request.session['autorizacao'] = autorizacao_nome                
 
     #Lista de nomes de atributos para atribuir às variáveis ​​de sessão
     atributos = ['id_usuario', 'numero_cadastro', 'eol', 'nome_completo', 'nome_social', 'raca_cor',
@@ -28,8 +52,7 @@ def editarUsuario(request, usuario_id):
                  'rg', 'necessidade_especial', 'nome_completo_responsavel', 'endereco',
                  'endereco_numero', 'complemento', 'cep', 'telefone_residencial', 'telefone_celular',
                  'telefone_recado', 'nome_telefone_recado', 'tipo_sanguineo', 'convenio', 'alergias', 
-                 'problemas_saude','tratamento_medico', 'restricao_ativfisica', 'lesao_fratura_cirurgia',
-                 'foto3x4', 'rg_usuario', 'cert_nasc_usuario', 'rg_responsavel', 'comprov_residencia', 'autorizacao'
+                 'problemas_saude','tratamento_medico', 'restricao_ativfisica', 'lesao_fratura_cirurgia'
                 ]
         
     for atributo in atributos:
