@@ -40,9 +40,9 @@ class Usuario(models.Model):
     restricao_ativfisica = models.CharField(max_length=100, null=True, blank=True)    
     lesao_fratura_cirurgia = models.CharField(max_length=100, null=True, blank=True)    
     # Passo 4
-    foto3x4 = models.ImageField(upload_to='documentos/', blank=True) # imagem .png, .jpg ou .jpeg
-    rg_usuario = models.FileField(upload_to = 'documentos/', blank=True) # documento .pdf
-    cert_nasc_usuario = models.FileField(upload_to = 'documentos/', blank=True) # documento .pdf
-    rg_responsavel = models.FileField(upload_to = 'documentos/', blank=True) # documento .pdf
-    comprov_residencia = models.FileField(upload_to = 'documentos/', blank=True) # documento .pdf
-    autorizacao = models.FileField(upload_to = 'documentos/', blank=True) # documento .pdf    
+    foto3x4 = models.ImageField(upload_to='documentos/', blank=True) # imagem jpg, jpeg ou png
+    rg_usuario = models.FileField(upload_to = 'documentos/', blank=True) # documento pdf
+    cert_nasc_usuario = models.FileField(upload_to = 'documentos/', blank=True) # documento pdf
+    rg_responsavel = models.FileField(upload_to = 'documentos/', blank=True) # documento pdf
+    comprov_residencia = models.FileField(upload_to = 'documentos/', blank=True) # documento pdf
+    autorizacao = models.FileField(upload_to = 'documentos/', blank=True) # documento pdf    
