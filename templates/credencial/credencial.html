@@ -39,18 +39,29 @@
 			</tr>
 			<tr>
 				<td><img src="{% static '/assets/img/credencial03.png' %}" width="34" height="222"></td>
-				<td width="167" height="222" align="center" valign="middle" bgcolor="#FFFFFF">Foto</td>
+				<td width="167" height="222" align="center" valign="middle" bgcolor="#FFFFFF"><img src="{% static '/assets/img/foto.png' %}" width="167" height="222"></td>
 				<td><img src="{% static '/assets/img/credencial04.png' %}" width="22" height="222"></td>
 				<td width="427" height="222" align="left" valign="top" bgcolor="#FFFFFF">
-						<p class="fonte_grande">{{ usuario.nome_completo }}</p>
-						<span class="fonte_media">
-							<p><b>RG: </b>{{ usuario.registro_funcional }}</p>
-							<p><b>EOL: </b>{{ usuario.eol }}</p>
-							<p><b>Data nasc.: </b>{{ usuario.datanasc }}</p>
-							<p><b>Tel.: </b>{{ usuario.celular}}</p>
-						</span>
+					{% if usuario.nome_social %}
+					<p class="fonte_grande">{{ usuario.nome_social }}</p>
+					{% else %}
+					<p class="fonte_grande">{{ usuario.nome_completo }}</p>
+					{% endif %}
+					<span class="fonte_media">
+					<p><b>RG: </b>{{ usuario.rg }}</p>
+					<p><b>EOL: </b>{{ usuario.eol }}</p>
+					<p><b>Data nasc.: </b>{{ usuario.data_nascimento }}</p>
+					<p><b>Tel.: </b>
+						{% if usuario.telefone_celular %}
+							{{ usuario.telefone_celular }}
+						{% elif usuario.telefone_residencial %}
+							{{ usuario.telefone_residencial }}
+						{% else %}
+							{{ usuario.telefone_recado }}
+						{% endif %}
+					</p>
+					</span>
 				</td>
-
 			</tr>
 			<tr>
 				<td colspan="4"><img src="{% static '/assets/img/credencial05.png' %}" width="650" height="70"></td>

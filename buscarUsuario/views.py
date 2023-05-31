@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from .forms import SearchForm
 from django.contrib import messages
 from django.db.models import Q
-from criarConta.models import CustomUser #trocar depois pela tabela dos usuários
 from criarUsuario.models import Usuario
 from django.contrib.auth import authenticate, login
 
@@ -14,14 +13,12 @@ def buscarUsuario(request):
         form = SearchForm(request.GET)
         if form.is_valid():
             consulta = form.cleaned_data['consulta']            
-            #results = Usuario.objects.filter(Q(nome_completo__icontains=consulta) | Q(eol=consulta))
 
-            # Try converting the search term to an integer
+            # Busca feita nos campos 'eol' e 'nome_completo'
             try:
                 eol_consulta = int(consulta)
                 results = Usuario.objects.filter(Q(nome_completo__icontains=consulta) | Q(eol=eol_consulta))
             except ValueError:
-                # Handle the case when the search term cannot be converted to an integer
                 results = Usuario.objects.filter(Q(nome_completo__icontains=consulta) | Q(nome_completo__icontains=str(consulta)))
 
             results = results.order_by('nome_completo')
