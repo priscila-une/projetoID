@@ -39,7 +39,9 @@
 			</tr>
 			<tr>
 				<td><img src="{% static '/assets/img/credencial03.png' %}" width="34" height="222"></td>
-				<td width="167" height="222" align="center" valign="middle" bgcolor="#FFFFFF"><img src="{% static '/assets/img/foto.png' %}" width="167" height="222"></td>
+				<td width="167" height="222" align="center" valign="middle" bgcolor="#FFFFFF">
+					<img src="{{ MEDIA_URL }}{{ usuario.foto3x4 }}" width="167" height="222">
+				</td>
 				<td><img src="{% static '/assets/img/credencial04.png' %}" width="22" height="222"></td>
 				<td width="427" height="222" align="left" valign="top" bgcolor="#FFFFFF">
 					{% if usuario.nome_social %}

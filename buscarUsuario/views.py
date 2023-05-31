@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404
+
+from setup import settings
 from .forms import SearchForm
 from django.contrib import messages
 from django.db.models import Q
 from criarUsuario.models import Usuario
 from django.contrib.auth import authenticate, login
+import os
 
 def buscarUsuario(request):
     form = SearchForm(request.GET or None)
@@ -27,7 +30,15 @@ def buscarUsuario(request):
 
 def credencial(request, usuario_id):
     usuario = get_object_or_404(Usuario, id_usuario=usuario_id)
-    return render (request, 'credencial/credencial.html', {'usuario': usuario })
+    #caminho = usuario.foto3x4.path #obter o 'path' da imagem
+    #filename = os.path.basename(caminho) #extrair o nome da imagem
+
+    context = {
+        'usuario': usuario,
+        #'MEDIA_URL': settings.MEDIA_URL,
+        #'filename': filename
+    }
+    return render (request, 'credencial/credencial.html', context)
 
 def exclui_usuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, id_usuario=usuario_id)
