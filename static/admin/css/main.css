@@ -1,0 +1,29 @@
+:root {
+    --primary: #417690;
+    --darkBlue: #123C69;
+    --darkBlue-50: #1B5A9D;
+
+
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--darkBlue);
+
+}
+
+
+.text-primaryColor{
+    color: var(--darkBlue);
+}
+
+.bg-primaryColor {
+    background-color: var(--darkBlue);
+}
+.bg-primaryColor-50{
+    background-color: var(--darkBlue-50);
+}
+
+/* .bg-primaryColor:hover{
+    background-color: var(--darkBlue-50);
+} */
