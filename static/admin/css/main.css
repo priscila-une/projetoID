@@ -28,6 +28,19 @@
     width: 90%;
 }
 
+.action-button{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    gap: 10px;
+    padding: 5px;
+    color: var(--darkBlue);
+    background-color: white;
+    font-weight: 500;
+    border: 2px solid #123C69;
+}
+
+
 /* .bg-primaryColor:hover{
     background-color: var(--darkBlue-50);
 } */
@@ -38,4 +51,10 @@
 
 .table_stripped tr:nth-child(even) {
     background-color:#d0e3f3;
+}
+
+tbody tr td {
+    padding: 10px;
+    border-radius: 10px;
+   
 }
