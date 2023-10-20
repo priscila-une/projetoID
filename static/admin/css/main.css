@@ -1,5 +1,5 @@
 :root {
-    --primary: #417690;
+    --primary: #72a9c4;
     --darkBlue: #123C69;
     --darkBlue-50: #1B5A9D;
 
@@ -24,6 +24,18 @@
     background-color: var(--darkBlue-50);
 }
 
+.sectioWidth{
+    width: 90%;
+}
+
 /* .bg-primaryColor:hover{
     background-color: var(--darkBlue-50);
 } */
+
+.table_stripped tr:nth-child(odd) {
+    background-color:#e9edf0;
+}
+
+.table_stripped tr:nth-child(even) {
+    background-color:#d0e3f3;
+}
