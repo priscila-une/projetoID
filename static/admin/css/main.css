@@ -59,6 +59,21 @@ tbody tr td {
    
 }
 
+/*botão selecionar arquivo*/
+input[type='file'] {
+    display: none
+  }
+  
+  /* Aparência que terá o seletor de arquivo */
+label.input-file{
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid var(--darkBlue);
+    color: var(--darkBlue);
+    cursor: pointer;
+    padding: 10px;
+}
+
 textarea {
     height: 15vh;
 }
