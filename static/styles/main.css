@@ -12,6 +12,18 @@
 
 }
 
+@media (max-width: 680px){
+    #principal-logo-div {
+       
+        border-top-right-radius: 5%;
+        border-bottom-left-radius: 0%;
+    }
+
+    #principal-logo-div > img{
+        width: 60%;
+    }
+}
+
 
 .text-primaryColor{
     color: var(--darkBlue);
@@ -20,6 +32,7 @@
 .bg-primaryColor {
     background-color: var(--darkBlue);
 }
+
 .bg-primaryColor-50{
     background-color: var(--darkBlue-50);
 }
