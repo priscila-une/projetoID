@@ -9,8 +9,9 @@
     font-size: 0.875rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--darkBlue);
-
+    
 }
+
 
 @media (max-width: 680px){
     #principal-logo-div {

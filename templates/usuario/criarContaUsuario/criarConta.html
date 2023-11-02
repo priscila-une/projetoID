@@ -10,14 +10,14 @@
 	</head>
 
 	<body class="p-5 bg-primaryColor d-flex justify-content-center align-items-center vh-100">
-
+					
 			<div class="d-flex flex-column flex-md-row">
 
-				<div id="principal-logo-div" class="bg-info rounded-start-4 d-flex flex-column justify-content-center align-items-center ">
-					<img src="/projetoID/static/assets/img/logo_ceu_redondo.png" alt="Logo redondo do Centro educacional unificado Parque Bristol" class="p-5 " />
+				<div id="principal-logo-div" class="bg-info rounded-start-4 d-flex flex-column justify-content-center align-items-center">
+					<img src="/projetoID/static/assets/img/logo_ceu_redondo.png" alt="Logo redondo do Centro educacional unificado Parque Bristol" class="p-5" />
 				</div>
 				
-				<div id="principal-login-div" class="p-5 bg-white justify-content-center d-flex flex-column rounded-end-2">				
+				<div id="principal-login-div" class="p-5 bg-white justify-content-center d-flex flex-column rounded-end-4">				
 					<!-- {% if messages %}
 						{% for message in messages %}
 						<span {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message|safe }}</span>
@@ -28,8 +28,8 @@
 					<form action="" method="post" class="container">
 						<!-- {% csrf_token %} -->
 						<fieldset >
-							<fieldset class="fs-3 fw-bold">Login / Funcionário</fieldset>
-							<p class="text-primaryColor">Preencha os campos abaixo e acesse a sua conta.</p>
+							<fieldset class="fs-3 fw-bold">Criar conta / Usuário</fieldset>
+							<p class="">Preencha os campos abaixo e acesse a sua conta.</p>
 							
 							<div class="mb-3">
 								<label for="email" class="form-label fw-bold text-primaryColor">Endereço de email</label>
@@ -41,18 +41,25 @@
 								<input class="form-control " type="password" id="senha" name="senha" maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" required>
 								<span class="tooltip" data-tooltip="A senha deve conter no mínimo 8 e no máximo 15 caracteres. Deve incluir pelo menos uma letra maiúscula, uma letra minúscula, um número e um dos seguintes caracteres especiais: @ $ ! % * ? &">?</span>						
 							</div>
+
+                            <div class="mb-3">
+								<label for="senha" class="form-label fw-bold text-primaryColor">Repita a senha</label>
+								<input class="form-control " type="password" id="senha" name="senha" maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" required>
+								<span class="tooltip" data-tooltip="A senha deve conter no mínimo 8 e no máximo 15 caracteres. Deve incluir pelo menos uma letra maiúscula, uma letra minúscula, um número e um dos seguintes caracteres especiais: @ $ ! % * ? &">?</span>						
+							</div>
 	
 							
-							<button class="btn-primary:hover btn w-100 text-white bg-primaryColor btn- " value="Entrar" type="submit">Entrar</button>
+							<button class="rounded p-2 w-100 text-white bg-primaryColor" value="Entrar" type="submit">Criar conta</button>
 						
 						</fieldset>
 					</form>
+					
+					<p class="text-center px-2 pt-2">Já tem uma conta? <a href=""><b>Login</b></a></p>
 	
 				</div>
 			</div>
 			
 
-	
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>	
 	</body>
 </html>

@@ -9,7 +9,18 @@
         <link rel="stylesheet" type="text/css" href="/projetoID/static/styles/ceu_style.css"/>
         <script src="https://kit.fontawesome.com/2f4f762cce.js" crossorigin="anonymous"></script>
     </head>
-	<body class="d-flex flex-column flex-md-row bg-primaryColor">
+	<body class="d-flex flex-column flex-md-row bg-primaryColor text-primaryColor">
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+              <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
+        
         <aside class="d-flex flex-md-column gap-4 p-5 bg-info align-items-center">
             <img src="/projetoID/static/assets/img/logo_ceu_retangular.png" alt="" class="img-fluid col-3 col-md-12 align-self-center">
  
