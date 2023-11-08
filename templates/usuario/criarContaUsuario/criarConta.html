@@ -1,4 +1,3 @@
-<!-- {% load static %} -->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -29,7 +28,7 @@
 					<form action="" method="post" class="container">
 						<!-- {% csrf_token %} -->
 						<fieldset >
-							<fieldset class="fs-3 fw-bold">Login / Admin</fieldset>
+							<fieldset class="fs-3 fw-bold">Criar conta / Usuário</fieldset>
 							<p class="">Preencha os campos abaixo e acesse a sua conta.</p>
 							
 							<div class="mb-3">
@@ -42,14 +41,20 @@
 								<input class="form-control " type="password" id="senha" name="senha" maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" required>
 								<span class="tooltip" data-tooltip="A senha deve conter no mínimo 8 e no máximo 15 caracteres. Deve incluir pelo menos uma letra maiúscula, uma letra minúscula, um número e um dos seguintes caracteres especiais: @ $ ! % * ? &">?</span>						
 							</div>
+
+                            <div class="mb-3">
+								<label for="senha" class="form-label fw-bold text-primaryColor">Repita a senha</label>
+								<input class="form-control " type="password" id="senha" name="senha" maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" required>
+								<span class="tooltip" data-tooltip="A senha deve conter no mínimo 8 e no máximo 15 caracteres. Deve incluir pelo menos uma letra maiúscula, uma letra minúscula, um número e um dos seguintes caracteres especiais: @ $ ! % * ? &">?</span>						
+							</div>
 	
 							
-							<button class="rounded p-2 w-100 text-white bg-primaryColor" value="Entrar" type="submit">Entrar</button>
+							<button class="rounded p-2 w-100 text-white bg-primaryColor" value="Entrar" type="submit">Criar conta</button>
 						
 						</fieldset>
 					</form>
 					
-					<p class="text-start px-2 pt-2">Não cadastrado? <a href="{% url 'cadastro_funcionario' %}"><b>Crie sua conta</b></a></p>
+					<p class="text-center px-2 pt-2">Já tem uma conta? <a href=""><b>Login</b></a></p>
 	
 				</div>
 			</div>
