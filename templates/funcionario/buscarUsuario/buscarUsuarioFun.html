@@ -9,21 +9,24 @@
         <link rel="stylesheet" type="text/css" href="/projetoID/static/styles/ceu_style.css"/>
         <script src="https://kit.fontawesome.com/2f4f762cce.js" crossorigin="anonymous"></script>
     </head>
-	<body class="d-flex vh-100 flex-column  flex-md-row ">
-        <aside class="d-flex flex-md-column gap-4 p-5 bg-info align-items-center">
-            <img src="/projetoID/static/assets/img/logo_ceu_retangular.png" alt="CEU" class="img-fluid col-3 col-md-12 align-self-center">
+	<body class="d-flex vh-100 flex-column flex-md-row ">
+        <aside id="asideNav" class="d-flex flex-md-column gap-4 p-4 bg-info">
+            <figure class="d-flex justify-content-center">
+                <img src="/projetoID/static/assets/img/logo_ceu_retangular.png" alt="" class="img-fluid col-8 col-md-9">
+            </figure>
  
-            <a href="/" class="p-2 bg-primaryColor text-white text-decoration-none d-flex gap-2 justify-content-center align-items-center rounded"  >
+            <a href="" class="p-2 bg-primaryColor text-white text-decoration-none d-flex gap-2 justify-content-center align-items-center rounded"  >
                 <i class="fa-solid fa-user-plus"></i>
                     Criar usuário
             </a>
-            <a href="" class="p-2 bg-primaryColor text-white text-decoration-none d-flex gap-2 justify-content-center align-items-center rounded"  >
-                <i class="fa-solid fa-magnifying-glass"></i>
+            <a href="" class="p-2 bg-primaryColor text-white text-decoration-none d-flex gap-2 align-items-center justify-content-center rounded "  >
+                <i class="fa-solid fa-magnifying-glass"></i> 
                     Buscar usuário
             </a>
         </aside>
-        <main class="w-100 bg-primaryColor d-flex flex-column gap-4">
-            <div class="d-flex gap-3 justify-content-end p-3">
+
+        <main class="w-100 bg-primaryColor d-flex flex-column gap-2">
+            <div class="d-flex gap-3 justify-content-end pe-5 p-4">
                 <a href="">
                     <i class="fa-solid fa-gear text-white fs-3 "></i>
                 </a>
@@ -32,7 +35,7 @@
                 </a>
             </div>
             
-            <div class="text-white fs-5 d-flex gap-2 px-4">
+            <div class="text-white fs-5 d-flex gap-2 px-5">
                 <a href="" class="text-decoration-none">
                     <i class="fa-solid fa-house text-white"></i>
                 </a>
@@ -40,7 +43,7 @@
                 <p class="">Buscar Usuário</p>
             </div>
 
-            <section class="h-100 sectioWidth rounded-4 bg-white d-flex flex-column align-self-center table-responsive p-5 mb-3">
+            <section class="sectioWidth rounded-4 bg-white d-flex flex-column  table-responsive m-5 mt-1 p-5">
                 <form action="" method="get" id="form-busca" class="d-flex justify-content-center p-3" role="search">
                     <input class="form-control-lg w-75" type="search" placeholder="digite o EOL ou o nome do usuário" aria-label="Search">
                     
@@ -51,7 +54,7 @@
                 
                 <table class="table_stripped text-primaryColor">
                     <thead>
-                        <tr class="p-1 text-center fw-bold ">
+                        <tr class="p-1 text-center fw-bold">
                             <th class="col-1 p-3 rounded bg-info" scope="col">EOL</th>
                             <th class="col-3 rounded-3 bg-info" scope="col">NOME COMPLETO</th>"
                             <th class="col-5 rounded-3 bg-info" scope="col">AÇÕES</th>	

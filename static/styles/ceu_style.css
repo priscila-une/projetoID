@@ -42,6 +42,11 @@
     width: 90%;
 }
 
+#asideNav{
+    
+    min-width: 250px;
+}
+
 .action-button{
     display: flex;
     align-items: center;

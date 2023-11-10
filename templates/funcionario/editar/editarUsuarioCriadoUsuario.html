@@ -10,20 +10,23 @@
         <script src="https://kit.fontawesome.com/2f4f762cce.js" crossorigin="anonymous"></script>
     </head>
 	<body class="d-flex flex-column flex-md-row">
-        <aside class="d-flex flex-md-column gap-4 p-5 bg-info align-items-center">
-            <img src="/projetoID/static/assets/img/logo_ceu_retangular.png" alt="" class="img-fluid col-3 col-md-12 align-self-center">
+        <aside id="asideNav" class="d-flex flex-md-column gap-4 p-4 bg-info">
+            <figure class="d-flex justify-content-center">
+                <img src="/projetoID/static/assets/img/logo_ceu_retangular.png" alt="" class="img-fluid col-8 col-md-9">
+            </figure>
  
-            <a href="/" class="p-2 bg-primaryColor text-white text-decoration-none d-flex gap-2 justify-content-center align-items-center rounded"  >
+            <a href="" class="p-2 bg-primaryColor text-white text-decoration-none d-flex gap-2 justify-content-center align-items-center rounded"  >
                 <i class="fa-solid fa-user-plus"></i>
                     Criar usuário
             </a>
-            <a href="" class="p-2 bg-primaryColor text-white text-decoration-none d-flex gap-2 justify-content-center align-items-center rounded"  >
+            <a href="" class="p-2 bg-primaryColor text-white text-decoration-none d-flex gap-2 align-items-center justify-content-center rounded "  >
                 <i class="fa-solid fa-magnifying-glass"></i> 
                     Buscar usuário
             </a>
         </aside>
-        <main class="w-100 bg-primaryColor d-flex flex-column gap-4 px-5">
-            <div class="d-flex gap-3 justify-content-end p-3">
+
+        <main class="w-100 bg-primaryColor d-flex flex-column gap-2 ">
+            <div class="d-flex gap-3 justify-content-end pe-5 p-4">
                 <i class="fa-solid fa-gear text-white fs-3 "></i>
                 
                 <i class="fa-solid fa-right-from-bracket text-white fs-3 "></i>
@@ -36,7 +39,7 @@
                 <p class="">Editar usuário - Enviar documentos > Passo 4 de 4</p>
             </div>
 
-            <section class="rounded-4 bg-white d-flex flex-column w-100 align-self-center mb-4">
+            <section class="rounded-4 bg-white d-flex flex-column m-5 mt-1">
                 <form action="" class="p-5 d-flex flex-column gap-2 fw-bold text-primaryColor">
                     <table class="table_stripped text-primaryColor w-100">
                         <thead>
@@ -173,10 +176,10 @@
                     </table>
                     
 
-                    <div class="d-flex justify-content-center gap-3">
-                        <a href="" class="rounded bg-primaryColor text-white p-2 border-0 mt-4 col-6 col-md-5 text-decoration-none text-center" >Passo Anterior</a>
+                    <div class="d-flex flex-column flex-md-row justify-content-between ">
+                        <a href="" class="rounded bg-primaryColor text-white p-2 border-0 mt-4 col-12 col-md-5 text-decoration-none text-center" >Passo Anterior</a>
                         
-                        <button type="submit" class="rounded bg-primaryColor text-white p-2 border-0 mt-4 col-6 col-md-5 fw-bold" onclick="" >Gravar</button>
+                        <button type="submit" class="rounded bg-primaryColor text-white p-2 border-0 mt-4 col-12 col-md-5 fw-bold" onclick="" >Gravar</button>
                     </div>
                     
                 </form>

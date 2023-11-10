@@ -21,34 +21,36 @@
             new window.VLibras.Widget('https://vlibras.gov.br/app');
         </script>
         
-        <aside class="d-flex flex-md-column gap-4 p-5 bg-info align-items-center">
-            <img src="/projetoID/static/assets/img/logo_ceu_retangular.png" alt="" class="img-fluid col-3 col-md-12 align-self-center">
+        <aside id="asideNav" class="d-flex flex-md-column gap-4 p-4 bg-info">
+            <figure class="d-flex justify-content-center">
+                <img src="/projetoID/static/assets/img/logo_ceu_retangular.png" alt="" class="img-fluid col-8 col-md-9">
+            </figure>
  
             <a href="" class="p-2 bg-primaryColor text-white text-decoration-none d-flex gap-2 justify-content-center align-items-center rounded"  >
                 <i class="fa-solid fa-user-plus"></i>
                     Criar usuário
             </a>
-            <a href="" class="p-2 bg-primaryColor text-white text-decoration-none d-flex gap-2 justify-content-center align-items-center rounded"  >
+            <a href="" class="p-2 bg-primaryColor text-white text-decoration-none d-flex gap-2 align-items-center justify-content-center rounded "  >
                 <i class="fa-solid fa-magnifying-glass"></i> 
                     Buscar usuário
             </a>
         </aside>
 
-        <main class="w-100   d-flex flex-column gap-4">
-            <div class="d-flex gap-3 justify-content-end p-3">
+        <main class="w-100 d-flex flex-column gap-2"> 
+            <div class="d-flex gap-3 justify-content-end pe-5 p-4">
                 <i class="fa-solid fa-gear text-white fs-3 "></i>
                 
                 <i class="fa-solid fa-right-from-bracket text-white fs-3 "></i>
             </div>
             
-            <div class="text-white fs-5 d-flex gap-2 px-4">
+            <div class="text-white fs-5 d-flex gap-2 px-5">
                 <a href="" class="text-decoration-none">
                     <i class="fa-solid fa-house text-white"></i>
                 </a><span> / </span>
                 <p class="">Criar Usuário > Passo 1 de 4</p>
             </div>
 
-            <section class="rounded-4  bg-white d-flex flex-column w-75 align-self-center mb-4 ">
+            <section class="rounded-4 bg-white d-flex flex-column m-5 mt-1 ">
                 <form action="" class="p-5 d-flex flex-column gap-2 fw-bold text-primaryColor">
                     
                         <p>Campos marcados com * são obrigatórios.</p>
@@ -97,8 +99,9 @@
 
                     </div>
 
-                    <label for="raca_cor">Raça/cor*</label>
-                    <select name="raca_cor" class="form-select w-50 mb-3">
+                    <div class="mb-3 col-md-5" >
+                        <label for="raca_cor">Raça/cor*</label>
+                        <select name="raca_cor" class="form-select p-2 mb-1">
                         <option value="valor0">Selecione raça/cor</option>
                         <option value="valor1">Preta</option>
                         <option value="valor2">Parda</option>
@@ -107,6 +110,8 @@
                         <option value="valor3">Amarela</option>
                         <option value="valor3">Prefiro não responder</option>
                       </select>
+                    </div>
+                    
 
                    
                       <div class="d-flex flex-column gap-3 flex-md-row gap-md-5">
@@ -191,10 +196,10 @@
 
                         
                         </div> 
-                        <textarea placeholder="Preencha este campo se a resposta for 'sim'." class="rounded col-12 col-md-7 "></textarea>
+                        <textarea placeholder="Preencha este campo se a resposta for 'sim'." class="rounded col-12 col-md-5 "></textarea>
                     
 
-                    <button type="submit" class="rounded bg-primaryColor fw-bold  text-white p-2 border-0 mt-4 col-12 col-md-6" onclick="" >Próximo passo</button>
+                    <button type="submit" class="rounded bg-primaryColor fw-bold  text-white p-2 border-0 mt-4 col-12 col-md-5" onclick="" >Próximo passo</button>
                 </form>
             </section>
             
